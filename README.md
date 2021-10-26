@@ -2,6 +2,7 @@
 
 ### How to use
 ```
-conan create . user/channel
-conan upload user/channel --all -r=<REPO_NAME>
+conan create . promise/master@user/channel
+conan upload promise/master@user/channel --all -r=<REPO_NAME>
 ```
+> Replace `master` with the git ref name

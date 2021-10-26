@@ -2,8 +2,7 @@ from conans import ConanFile, CMake, tools
 
 
 class PromiseConan(ConanFile):
-    name = "Promise"
-    version = "master"
+    name = "promise"
     license = "MIT"
     author = "Manuel Sabogal <mfer32@gmail.com>"
     url = "https://github.com/edoren/Promise"
@@ -12,8 +11,8 @@ class PromiseConan(ConanFile):
     generators = "cmake"
 
     def source(self):
-        print(self.version)
-        self.run("git clone --depth 1 https://github.com/edoren/Promise.git")
+        git = tools.Git(folder="Promise")
+        git.clone("https://github.com/edoren/Promise.git", branch=self.version, shallow=True)
 
     def package(self):
         self.copy("*.hpp", dst="include", src="Promise/include")
